@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #112;
+        }
+        table{
+            text-align: center;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        td{
+            width: 100px;
+            height: 100px;
+            background-color: #fcc;
+            border-radius: 10px;
+            box-shadow: inset -5px -5px 2px #eee,
+            inset 5px 5px 2px #555;
+        }
+        td input{
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            font-size:2rem ; 
+        }
+        th input{
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #976;
+            text-align: right;
+            color: #fff;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4"><input type="text" id="eq" value=""></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="button" class='clrone' value="C"></td>
+                <td><input type="button" class='clral' value="AC"></td>
+                <td><input type="button" class= 'in' value="/"></td>
+                <td><input type="button" class= 'in' value="*"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" class= 'in'value="7"></td>
+                <td><input type="button" class= 'in'value="8"></td>
+                <td><input type="button" class= 'in'value="9"></td>
+                <td><input type="button" class= 'in'value="-"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" class= 'in'value="4"></td>
+                <td><input type="button" class= 'in'value="5"></td>
+                <td><input type="button" class= 'in'value="6"></td>
+                <td><input type="button" class= 'in'value="+"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" class= 'in'value="1"></td>
+                <td><input type="button" class= 'in'value="2"></td>
+                <td><input type="button" class= 'in'value="3"></td>
+                <td><input type="button" class= 'in'value="%"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class= 'in'value="00"></td>
+                <td><input type="button" class= 'in'value="0"></td>
+                <td><input type="button" class= 'in'value="."></td>
+                <td><input type="button" class='equal' value="="></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        let btn = document.querySelectorAll('input.in');
+        let eq= document.getElementById('eq');
+        let equal = document.querySelector('.equal');
+        let clral = document.querySelector('.clral')
+        let clrone = document.querySelector('.clrone')
+        // console.log(btn);
+
+        btn.forEach(x =>{
+            x.addEventListener('click', ()=>{
+                eq.value += x.value;
+            })
+        })
+
+        clral.addEventListener('click', ()=>{
+            eq.value ='';
+
+        });
+
+        clrone.addEventListener('click',()=>{
+            eq.value = eq.value.slice(0,eq.value.length-1);
+        })
+
+        equal.addEventListener('click',()=>{
+            eq.value = eval(eq.value);
+        })
+
+    </script>
+
+</body>
+
+</html>
